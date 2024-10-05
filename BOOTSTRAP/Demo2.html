@@ -6,9 +6,14 @@
     <title>Bootstrap Demo 2</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="ind.css"/>
+    <style>
+      body {
+        padding-top: 60px; /* Adjust to navbar height */
+      }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-primary fixed-top" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,20 +26,32 @@
               <a class="nav-link" href="#">Pricing</a>
               <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </div>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
           </div>
         </div>
       </nav>
-    <div class="container">
+      <div class="container">
         <h2>Bootstrap Demo</h2>
-        <div class="btn-group">
-            <button class="btn btn-primary">Btn1</button>
-            <button class="btn btn-outline-success">Btn1</button>
-            <button class="btn btn-warning">Btn1</button>
+        <div class="card" style="width: 18rem;">
+          <img src="photo.jpg" class="card-img-top"/>
+          <div class="card-body">
+            <h5 class="card-title">Photography</h5>
+            <p class="card-text">It is an art to capture important things.</p>
+            <a href="#" class="btn btn-primary">Know more</a>
+          </div>
         </div>
-        <button class="btn btn-success">Btn1</button>
-        <button class="btn btn-success">Btn1</button>
-        <button class="btn btn-success">Btn1</button>
-    </div>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et architecto laborum dignissimos, aliquid enim minus commodi est quam eveniet ut consequatur voluptatum dolor delectus pariatur magni non illo eos qui?
+      Ducimus optio dolorum dolores repudiandae porro, deserunt voluptatibus enim itaque nemo dolor, quia reiciendis a perferendis minima totam voluptas accusamus cupiditate voluptates consectetur repellat cumque corrupti. Quaerat molestias nesciunt sapiente.
+      Illo atque ratione aliquid, unde saepe, ducimus molestias odit eum dolore beatae delectus? Illo officia, molestiae cumque neque, itaque in animi recusandae dolore distinctio sapiente provident earum aspernatur consequuntur ad!
+      Libero, suscipit voluptate maiores dolores nostrum labore! Illo blanditiis repudiandae quo iste eius aliquam alias minima magnam, inventore rem maxime! Recusandae minus a quis quae tenetur delectus dolore, quo sunt.
+      Modi, aut ducimus. Perspiciatis aliquam porro doloribus vel corporis omnis quod error? Placeat culpa fuga sequi, itaque soluta vel. Dolore saepe libero, omnis cumque mollitia totam accusamus? Illo, illum unde?
+    </p>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+  
