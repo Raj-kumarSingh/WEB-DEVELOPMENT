@@ -18,7 +18,7 @@ document.addEventListener("keypress",function(){
 function gameFlash(btn){
     btn.classList.add("flash");
     setTimeout(function(){
-        btn.classList.remove("flash");
+        btn.classList.remove("flash");  
     },250);
 }
 
@@ -30,6 +30,7 @@ function userFlash(btn){
 }
 
 function levelUp(){
+    userSeq=[];
     level++;
     h2.innerText=`Level ${level}`;
 
@@ -54,12 +55,17 @@ function checkAns(idx){
             setTimeout(levelUp,1000);
         }
     }else{
-        h2.innerText=`Game over! press any key to start.`;
+        h2.innerHTML=`Game over! Your score was <b>${level}</b> <br> press any key to start.`;
+        document.querySelector("body").style.backgroundColor="red";
+        setTimeout(function(){
+            document.querySelector("body").style.backgroundColor="white";
+        });
+        reset();
     }
 }
 function btnPress(){
     let btn=this;
-    console.log(btn);
+    // console.log(btn);
     userFlash(btn);
 
     userColor=btn.getAttribute("id");
@@ -72,3 +78,35 @@ let allBtns=document.querySelectorAll(".btn");
 for(btn of allBtns){
     btn.addEventListener("click",btnPress);
 }
+function reset(){
+    started=false;
+    gameSeq=[];
+    userSeq=[];
+    level=0;
+}
+let highestScore = 0;
+
+function updateHighestScore() {
+    if (level > highestScore) {
+        highestScore = level;
+    }
+    let highestScoreElement = document.querySelector(".highest-score");
+    if (highestScoreElement) {
+        highestScoreElement.innerText = `Highest Score: ${highestScore}`;
+    }
+}
+
+function reset() {
+    updateHighestScore();
+    started = false;
+    gameSeq = [];
+    userSeq = [];
+    level = 0;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    let highestScoreElement = document.createElement("div");
+    highestScoreElement.classList.add("highest-score");
+    highestScoreElement.innerText = `Highest Score: ${highestScore}`;
+    document.body.appendChild(highestScoreElement);
+});

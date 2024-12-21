@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Calculator</title>
+</head>
+<body>
+    <h1>Binary Calculator</h1>
+    <input type="text" id="binary1" placeholder="Enter first binary number">
+    <input type="text" id="binary2" placeholder="Enter second binary number">
+    <button onclick="calculateBinary()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateBinary() {
+            const binary1 = document.getElementById('binary1').value;
+            const binary2 = document.getElementById('binary2').value;
+
+            // Convert binary to decimal
+            const decimal1 = parseInt(binary1, 2);
+            const decimal2 = parseInt(binary2, 2);
+
+            // Perform addition
+            const sum = decimal1 + decimal2;
+
+            // Convert result back to binary
+            const binaryResult = sum.toString(2);
+
+            // Display result
+            document.getElementById('result').innerText = `Result: ${binaryResult}`;
+        }
+    </script>
+</body>
+</html>
