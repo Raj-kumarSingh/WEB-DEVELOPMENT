@@ -25,14 +25,7 @@ console.log(typeof y); //object //it is a bug in JavaScript
 
 //+++++++++++++++++++++++++++++++++ MEMORIES ++++++++++++++++++++++++++++++++++++++++++++
 //STACK(PRMITIVE DATA TYPES)  |  HEAP(NON-PRIMITIVE DATA TYPES)
-//STACK DIAGRAM
-//|-------------------|
-//|                   |
-//|                   |
-//|                   |
-//|                   |
-//|                   |
-//|                   |
+
 let myYoutubeChannel="CodeWithAwa";
 let anothername=myYoutubeChannel;
 anothername="John";
@@ -56,6 +49,6 @@ console.log(userTwo.email); //
 //|  anothername      |          -------------------
 //|  myYoutubechannel |
 
-//In stack if changes are made in one variable then it will not affect the other variable.
+//In stack if changes are made in one variable then it will not affect the other variable. . //This is called as DEEP COPY
 //In heap if changes are made in one variable then it will affect the other variable.   //This is called as SHALLOW COPY
 //as both the variables are pointing to the same memory location. that is why changes made in one variable will affect the other variable.
