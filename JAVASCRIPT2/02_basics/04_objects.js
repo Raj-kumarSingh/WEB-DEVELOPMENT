@@ -47,9 +47,9 @@ const users=[
 ]
 console.log(users[1].email);
 console.log(tinderUser);
-console.log(Object.keys(tinderUser));
-console.log(Object.values(tinderUser));
-console.log(Object.entries(tinderUser));
+console.log(Object.keys(tinderUser)); //it will convert objects in return an array of keys
+console.log(Object.values(tinderUser)); //it will convert objects in return an array of values
+console.log(Object.entries(tinderUser)); //it will convert objects in return an array of arrays
 console.log(tinderUser.hasOwnProperty("isLogged"));
 
 const course={

@@ -10,3 +10,6 @@ accontCity="Bangalore";
 */
 console.log(accountId,accountEmail,accountPassword,accontCity)
 console.table([accountId,accountEmail,accountPassword,accontCity]);
+
+//!JAVASCRIPT is single threaded and synchronous language but it is non-blocking and asynchronous because of the event loop and callback queue
+//!in simple words, it can do multiple things at the same time without blocking the main thread
