@@ -17,5 +17,5 @@ map.set('name','John');
 map.set('age',25);
 map.set('country','USA');
 for(const key in map){
-    console.log(key);
+    console.log(key); //here it can not print key value pair
 }
