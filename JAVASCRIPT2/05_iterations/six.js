@@ -43,6 +43,10 @@ const books = [
         edition: 2001
     }
 ];
+//filter method used => Key Points:
+// .filter() is often used with arrow functions for cleaner syntax.
+// It does not change the original array.
+// If no elements match the condition, it returns an empty array.
 
 let userBooks=books.filter((bk)=> bk.genre === 'adventure')
 userBooks=books.filter((bk)=>{return bk.publish>=1905 && bk.edition>=2000})
