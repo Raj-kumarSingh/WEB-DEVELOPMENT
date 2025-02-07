@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub API Fetch</title>
+</head>
+<body>
+    <button id="data">Click to see Raj-kumarSingh Photos</button>
+    <img id="profile-pic" style="display:none; width: 150px; height: 150px; border-radius: 50%; margin-top: 20px;">
+    
+    <script>
+        const requestUrl = 'https://api.github.com/users/Raj-kumarSingh';
+        const xhr = new XMLHttpRequest();
+        let userData = null;  // ✅ Variable to store API response
+
+        xhr.open('GET', requestUrl);
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState);
+            if (xhr.readyState === 4 && xhr.status === 200) { // ✅ Ensure successful response
+                userData = JSON.parse(this.responseText); // ✅ Store data in global variable
+                console.log("Followers:", userData.followers);
+                console.log("Profile pic URL:", userData.avatar_url);
+                console.log("Profile name:", userData.name);
+            }
+        };
+        xhr.send(); 
+
+        document.getElementById('data').addEventListener('click', function () { 
+            if (userData) {  // ✅ Ensure data is loaded before using it
+                const imgElement = document.getElementById('profile-pic');
+                imgElement.src = userData.avatar_url;
+                imgElement.style.display = 'block';
+            } else {
+                console.log("Data not loaded yet. Please wait...");
+            }
+        });
+    </script>
+</body>
+</html>
