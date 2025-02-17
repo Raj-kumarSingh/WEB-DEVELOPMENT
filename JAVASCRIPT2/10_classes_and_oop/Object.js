@@ -23,4 +23,5 @@ creatUser.prototype.printMe=function(){
 const chai=new creatUser("chai",25);
 const tea=new creatUser("tea",250);
 
-chai.printMe();
+chai.printMe(); // here it will give TypeError: Cannot read properties of undefined (reading 'printMe') if we do'nt decalre the object 
+// without new keyWord
