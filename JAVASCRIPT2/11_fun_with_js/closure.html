@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color:#313131;">
+    <button id="orange">Click1</button>
+    <button id="green">Click2</button>
+    <script>
+        //Lexical Scoping  
+       /* function outer(){
+            let name='Raj';
+            function inner(){
+                let secret = 'some secret value';
+                 // Define 'secret' properly
+                console.log(name);
+                return secret; // Return the secret value if necessary
+            }
+            function innerTwo(){
+
+                let secret = inner(); // Call inner() to retrieve the secret
+                console.log(secret);
+                console.log(name);
+            }
+            console.log(secret);
+            inner();
+            
+            innerTwo(); // Call innerTwo to see the output
+        }
+        outer();
+
+        function makeFunc(){
+            const name='Mozzila';
+            function displayName(){
+                console.log(name);
+            }
+            return displayName; //not only this function will be shared instead this entire lexical scope will be 
+            //shared means makeFunc()..
+            const func=makeFunc();
+            myFunc();
+        } */
+    </script>
+    <script>
+        function clickHandler(color){
+          //  document.body.style.backgroundColor = `${color}`; // Set the background color based on the input
+          return function(){
+            document.body.style.backgroundColor=`${color}`
+          }
+
+        }
+        document.getElementById('orange').onclick=clickHandler("orange");
+        document.getElementById('green').onclick=clickHandler("green");
+    </script>
+</body>
+</html>
