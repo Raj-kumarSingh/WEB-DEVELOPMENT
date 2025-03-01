@@ -17,8 +17,9 @@ app.get("/:username/:id",(req,res)=>{
     res.send(htmlStr);
 })
 app.get('/search',(req,res)=>{
-    let {q}=req.query;res.send(`These are the search results for query:${q}`);
-})sd
+    let {q}=req.query;
+res.send(`These are the search results for query:${q}`);
+})
     
 // app.get('/apple',(req,res)=>{
 //     res.send('This is apple page');
