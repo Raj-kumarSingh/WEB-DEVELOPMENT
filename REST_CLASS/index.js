@@ -2,13 +2,15 @@ const express = require("express");
 const app = express();
 const port = 8000;
 const path=require("path");
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
 
 
 const { v4: uuidv4 } = require('uuid');
-uuidv4();
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // Add this to handle JSON requests
+app.use(express.json()); // JSON parsing should be added before routes
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -46,22 +48,38 @@ app.post("/posts",(req,res)=>{
     res.redirect("/posts");
 
 })
-app.get("/posts/:id",(req,res)=>{
-    let {id} = req.params;
-    let post=posts.find((p) => id===p.id);
-    res.render("show.ejs",{post});
-    // console.log(post);
-    // posts.push({username,content});
-    // res.send("request working");
+app.get("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let post = posts.find((p) => p.id === id); // fixed comparison direction
+    if (!post) {
+        return res.status(404).send("Post not found");
+    }
+    res.render("show.ejs", { post });
+});
 
-})
-app.patch("/posts/:id",(req,res)=>{
-    let {id}=req.params;
-    let newContent=req.body.content;
-    console.log(newContent);
-    console.log(id);
-    res.send("patch request working..");
-})
+
+app.patch("/posts/:id", (req, res) => {
+    let { id } = req.params;
+    let post = posts.find(p => p.id === id);
+    post.content=req.body.content
+    //console.log("Available Posts content:", content);
+    console.log("Received ID:", id);
+    console.log("Available Posts:", posts.map(p => p.id
+        
+    ));
+
+    if (!post) {
+        return res.status(404).send("Post not found");
+    }
+
+    if (req.body.content) {
+        post.content = req.body.content;
+    }
+
+    res.send("Post updated successfully");
+});
+
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}...`);
 });
